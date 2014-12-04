@@ -27,6 +27,9 @@ bool    VerifyUser( unsigned char* dbPrint,
 		int result = dpfj_compare(DPFJ_FMD_ANSI_378_2004, dbPrint, dbPrintSize, 0,
 				DPFJ_FMD_ANSI_378_2004, print, printSize, 0, &falsematch_rate);
 
+		cout << "FINGERPRINT: result=" << result << ", falsematch_rate=" << falsematch_rate
+				 << ", target=" << TARGET_FALSEMATCH_RATE << endl;
+
 		// If the comparison was successful and the prints matched
 		if(result == DPFJ_SUCCESS && falsematch_rate < TARGET_FALSEMATCH_RATE) {
 			return true;
